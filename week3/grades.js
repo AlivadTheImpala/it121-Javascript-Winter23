@@ -6,19 +6,25 @@ console.log("The array is", splitGrades);
 console.log("The array length is", splitGrades.length);
 
 let scores = [];
+let names = [];
+
 for (let i = 0; i < splitGrades.length; i++) {
   //   let scoreStr = splitGrades[i].slice(-2);
   //   let scoreInt = parseInt(scoreStr);
 
   let splitScore = splitGrades[i].split("|");
 
-  //index 0 holds our string names and index 1 holds our number strings, which we then convert into numbers with parseInt.
-  let names = splitScore[0];
-  let score = parseInt(splitScore[1]);
+  //index 0 holds our string studentName and index 1 holds our number strings, which we then convert into numbers with parseInt.
+  let studentName = splitScore[0];
+  let studentScore = parseInt(splitScore[1]);
 
-  let capitalizedName = names.charAt(0).toUpperCase() + names.slice(1);
+  let capitalizedName =
+    studentName.charAt(0).toUpperCase() + studentName.slice(1);
 
-  console.log(capitalizedName, "-", score);
-  scores.push(score);
+  document.write(capitalizedName, " - ", studentScore, "<br>");
+
+  scores.push(studentScore);
+  names.push(studentName);
 }
-console.log(scores);
+document.write(scores, "<br>");
+document.write(names);
