@@ -50,9 +50,9 @@ for (let i = 0; i < scores.length; i++) {
 }
 document.write("<b>Average Score:</b>  ", avg, " points<br>");
 
+//initialize lowest and highest score as first element in scores array. If the respective index is lower/higher than the current lowest/highest number, it becomes the new lowest/highest number
 let lowestScore = scores[0];
 let highestScore = scores[0];
-
 for (let i = 0; i < scores.length; i++) {
   if (scores[i] < lowestScore) {
     lowestScore = scores[i];
