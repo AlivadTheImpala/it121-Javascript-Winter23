@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <title>Form</title>
+  </head>
+  <body>
+    <h1>Functions \& validation</h1>
+
+    <form id="form1" action="#" onsubmit="return validateForm(this);">
+      first name: <input type="text" name="firstname" id="firstname" /><br />
+      last name: <input type="text" name="lastname" id="lastname" /><br />
+      password: <input type="text" name="password" id="password" /><br />
+
+      <button>Check</button>
+    </form>
+
+    <hr />
+    <div id="message"></div>
+
+    <script>
+      function validatePassword() {
+        let password = document.getElementById("password").value;
+        let lowerCase = 0;
+        let upperCase = 0;
+
+        // checks whether each character in the password is upper or lower case.
+        for (let i = 0; i < password.length; i++) {
+          let character = password.charAt(i);
+
+          if (character === character.toUpperCase()) {
+            upperCase = 1;
+            console.log(character, "is uppercase");
+          }
+          if (character === character.toLowerCase()) {
+            lowerCase = 1;
+            console.log(character, "is lowercase");
+          }
+        }
+
+        let validCharacters = false;
+        if (lowerCase === 1 && upperCase === 1) {
+          validCharacters = true;
+          return validCharacters;
+        }
+
+        if (!validCharacters || password.length < 8) {
+          alert(
+            "Please enter a valid password. Password must be at least 8 characters in length and contain both upper and lowercase letters."
+          );
+        }
+      }
+
+      const validateForm = (myForm) => {
+        var firstname = myForm.firstname.value; // get text of firstname field
+        var lastname = myForm.lastname.value; // get text of lastname field
+        var password = validatePassword(password);
+        // update 'message' DIV with appropriate wording Jquery.
+        $("#message").html("This password is Valid");
+
+        /* Form validation code goes here
+         */
+        // validatePassword(password);
+
+        return false; // prevent page reload
+      };
+    </script>
+  </body>
+</html>
